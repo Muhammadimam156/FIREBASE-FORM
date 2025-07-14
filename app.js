@@ -1,10 +1,10 @@
 
   
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
 
-   import { getFirestore ,collection, addDoc} from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
+   import { getFirestore ,collection, addDoc, getDocs} from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
  
- 
+
   const firebaseConfig = {
     apiKey: "AIzaSyBOiCNjEfCgTXCvRAK2u99sBjTpALMuhOA",
     authDomain: "smit-form-fe91e.firebaseapp.com",
@@ -63,5 +63,70 @@ form.addEventListener('submit', submitForm);
 
 
 
+document.getElementById('detailButton').addEventListener('click', function() {
+  document.getElementById('searchInput').style.display = 'block';
+  document.getElementById('searchInput').focus();
+  document.getElementById('detailButton').style.display = 'none';
+  document.getElementById('searchButton').style.display = 'block';
+});
+
+
+document.getElementById('searchButton').addEventListener('click', function() {
+  const searchInput = document.getElementById('searchInput').value;
+  const p = document.createElement('p');
+  p.innerText = `Searching for CNIC: ${searchInput}`;
+ 
+  alert(`Searching for CNIC: ${searchInput}`);
+  
+  if (searchInput) {
+    async function getData() {
+      const querySnapshot = await getDocs(collection(db, "SMIT STUDENT"));
+      let found = false;
+      querySnapshot.forEach((doc) => {
+        if (doc.data().cnic === searchInput) {
+         
+          const record = doc.data();
+          const parentDiv = document.createElement('div');
+          parentDiv.className = 'record-container';
+          const recordCard = document.createElement('div');
+          recordCard.className = 'record-card';
+          recordCard.innerHTML = `
+            <h3>Name: ${record.name}</h3>
+            <h3>Email: ${record.email}</h3>
+            <h3>CNIC: ${record.cnic}</h3>
+            <h3>DOB: ${record.dob}</h3>
+            <h3>Address: ${record.address}</h3>
+            <h3>Last Qualification: ${record.lastqualification}</h3>
+            <h3>Laptop: ${record.laptop}</h3>
+          `;
+          document.body.appendChild(recordCard);
+          console.log(`Record found: ${JSON.stringify(record)}`); 
+          found = true;
+          document.getElementById('searchInput').value = '';
+          document.getElementById('searchInput').style.display = 'none';
+          document.getElementById('searchButton').style.display = 'none';
+          document.getElementById(`registrationForm`).style.display = 'none';
+          const backButton = document.createElement('button');
+          backButton.id = 'backButton';
+          recordCard.appendChild(backButton);
+          backButton.textContent = 'Back to Form';
+          backButton.addEventListener('click', function() {
+            document.getElementById('searchInput').style.display = 'none';
+            document.getElementById('searchButton').style.display = 'none';
+            document.getElementById('detailButton').style.display = 'block';
+            document.getElementById(`registrationForm`).style.display = 'block';
+            recordCard.remove();
+          });
+        }
+      });
+      if (!found) {
+        alert(`No record found for CNIC: ${searchInput}`);
+      }
+    }
+    getData();
+  } else {
+    alert("Please enter a CNIC to search.");
+  }
+});
 
 

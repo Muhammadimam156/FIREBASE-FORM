@@ -80,3 +80,45 @@ select, input, textarea {
 .submit-btn:hover {
     background-color: #0055aa;
 }
+
+#searchInput{
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+}
+#searchButton{
+    background-color: #0066cc;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+.record-card{
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 15px;
+    margin-bottom: 15px;
+    background-color: #f9f9f9;
+    text-align: left;
+    font-size: medium;
+    color: #333; 
+}
+.record-container{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.record-card h3{
+    margin: 5px 0;
+    line-height: 1.4;
+    gap: 5px;
+    font-size: large;
+    color: #555;
+    text-align: center;
+
+}
