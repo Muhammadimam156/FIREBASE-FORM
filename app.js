@@ -94,15 +94,9 @@ document.getElementById('searchButton').addEventListener('click', function() {
          <div class="user-card">
         <!-- Header with SMIT logo placeholder -->
         <div class="card-header">
-            <img src="https://via.placeholder.com/50x50" alt="SMIT Logo" class="logo">
+            <img src="logo/smit.png" alt="SMIT Logo" class="logo">
             <h2>SMIT Registration Card</h2>
         </div>
-
-        <!-- User Photo -->
-        <div class="user-photo">
-            <img src="https://via.placeholder.com/150" alt="User Photo" id="userImage">
-        </div>
-
         <!-- User Details -->
         <div class="user-details">
             <div class="detail-row">
@@ -148,7 +142,7 @@ document.getElementById('searchButton').addEventListener('click', function() {
         <!-- Footer with QR Code -->
         <div class="card-footer">
             <div class="qr-code">
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=SMIT-12345" alt="QR Code">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=${record.name} from ${record.country} enrolled in ${record.course} CNIC: ${record.cnic}" alt="QR Code">
             </div>
             <p class="validity">Valid until: <span id="validDate">December 31, 2024</span></p>
         </div>
