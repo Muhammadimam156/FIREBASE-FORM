@@ -122,3 +122,112 @@ select, input, textarea {
     text-align: center;
 
 }
+
+
+
+
+/* Card Container */
+.user-card {
+    width: 100%;
+    max-width: 350px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+/* Header Section */
+.card-header {
+    background: #0066cc;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.card-header h2 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+/* User Photo */
+.user-photo {
+    padding: 20px;
+    text-align: center;
+}
+
+.user-photo img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 4px solid #0066cc;
+    object-fit: cover;
+}
+
+/* Details Section */
+.user-details {
+    padding: 0 20px 20px;
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px dashed #e0e0e0;
+}
+
+.detail-label {
+    font-weight: 600;
+    color: #555;
+}
+
+.detail-value {
+    color: #333;
+}
+
+.status-active {
+    color: #28a745;
+    font-weight: bold;
+}
+
+/* Footer Section */
+.card-footer {
+    background: #f9f9f9;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.qr-code img {
+    width: 80px;
+    height: 80px;
+}
+
+.validity {
+    margin: 0;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 400px) {
+    .user-card {
+        max-width: 100%;
+    }
+    
+    .card-header {
+        flex-direction: column;
+        gap: 5px;
+    }
+}

@@ -91,13 +91,68 @@ document.getElementById('searchButton').addEventListener('click', function() {
           const recordCard = document.createElement('div');
           recordCard.className = 'record-card';
           recordCard.innerHTML = `
-            <h3>Name: ${record.name}</h3>
-            <h3>Email: ${record.email}</h3>
-            <h3>CNIC: ${record.cnic}</h3>
-            <h3>DOB: ${record.dob}</h3>
-            <h3>Address: ${record.address}</h3>
-            <h3>Last Qualification: ${record.lastqualification}</h3>
-            <h3>Laptop: ${record.laptop}</h3>
+         <div class="user-card">
+        <!-- Header with SMIT logo placeholder -->
+        <div class="card-header">
+            <img src="https://via.placeholder.com/50x50" alt="SMIT Logo" class="logo">
+            <h2>SMIT Registration Card</h2>
+        </div>
+
+        <!-- User Photo -->
+        <div class="user-photo">
+            <img src="https://via.placeholder.com/150" alt="User Photo" id="userImage">
+        </div>
+
+        <!-- User Details -->
+        <div class="user-details">
+            <div class="detail-row">
+                <span class="detail-label">Full Name:</span>
+                <span class="detail-value" id="userName">${record.name}</span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">CNIC:</span>
+                <span class="detail-value" id="userCnic">${record.cnic}</span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">Course:</span>
+                <span class="detail-value" id="userCourse">${record.course}</span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">Date:</span>
+                <span class="detail-value" id="userBatch">${record.dob}</span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">Address:</span>
+                <span class="detail-value status-active" id="userStatus">${record.address}</span>
+            </div>
+             <div class="detail-row">
+                <span class="detail-label">Last qualification:</span>
+                <span class="detail-value status-active" id="userStatus">${record.lastQualification}</span>
+            </div>
+             <div class="detail-row">
+                <span class="detail-label">Laptop:</span>
+                <span class="detail-value status-active" id="userStatus">${record.laptop}</span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">Email:</span>
+                <span class="detail-value status-active" id="userStatus">${record.email}</span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">Country:</span>
+                <span class="detail-value status-active" id="userStatus">${record.country}</span>
+            </div>
+            
+            
+        </div>
+
+        <!-- Footer with QR Code -->
+        <div class="card-footer">
+            <div class="qr-code">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=SMIT-12345" alt="QR Code">
+            </div>
+            <p class="validity">Valid until: <span id="validDate">December 31, 2024</span></p>
+        </div>
+    </div>
           `;
           document.body.appendChild(recordCard);
           console.log(`Record found: ${JSON.stringify(record)}`); 
